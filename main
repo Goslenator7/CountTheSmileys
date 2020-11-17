@@ -1,0 +1,32 @@
+import java.util.*;
+
+public class SmileFaces {
+  
+  public static int countSmileys(List<String> arr) {
+    
+    // Set the count of smiles to 0
+    int smileCount = 0;
+    
+    // For every string in the list
+    for (String i : arr) {
+      // If the length is 2 then it will be a smiley without a nose
+      // So we only need to check for a ) or D in the next position
+      // Add 1 to smileCount if pattern found
+      
+      if (i.length() == 2) {
+        if ((i.charAt(0) == ':' || i.charAt(0) == ';') && (i.charAt(1) == ')' || i.charAt(1) == 'D')) {
+          smileCount++;
+        }
+      }
+      
+      // Do the same if length is three but check for nose also
+      
+      if (i.length() == 3) {
+        if ((i.charAt(0) == ':' || i.charAt(0) == ';') && (i.charAt(1) == '-' || i.charAt(1) == '~') && (i.charAt(2) == ')' || i.charAt(2) == 'D')) {
+          smileCount++;
+        }
+      }
+    }
+      return smileCount;
+  }
+}
